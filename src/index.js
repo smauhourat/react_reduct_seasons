@@ -16,11 +16,11 @@ class App extends React.Component {
   // }
 
   // Is the same as put in constructor
-  state = { lat: null, errorMessage: '' };
+  state = { lat: null, errorMessage: '', time: new Date().toLocaleTimeString() };
   
 
   componentDidMount() {
-    console.log('call componentDidMount');
+    //console.log('call componentDidMount');
     window.navigator.geolocation.getCurrentPosition(
       position => this.setState({ lat: position.coords.latitude }),
       error => this.setState({ errorMessage: error.message })
@@ -28,7 +28,7 @@ class App extends React.Component {
   }
 
   render() {
-    console.log('call render');
+    //console.log('call render');
     if (this.state.errorMessage && !this.state.lat) {
       return <div>Error: {this.state.errorMessage}</div>;
     }
